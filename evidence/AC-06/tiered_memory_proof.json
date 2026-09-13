@@ -1,0 +1,24 @@
+{
+  "ac_id": "AC-06",
+  "criterion": "Tiered memory (short-term + long-term + semantic)",
+  "tiers_tested": {
+    "short_term": {
+      "stored": "test_short = 'Short-term test entry'",
+      "recalled": "Short-term test entry",
+      "backend": "In-memory OrderedDict (volatile)"
+    },
+    "long_term": {
+      "stored": "test_long = 'Long-term test entry'",
+      "recalled": "Long-term test entry",
+      "backend": "SQLite (persistent)"
+    },
+    "semantic": {
+      "stored": "test_semantic = 'Carrier EcoTransit was used for standard orders'",
+      "search_query": "carrier selection for standard shipment",
+      "results_count": 3,
+      "top_result": "Carrier EcoTransit was used for standard orders",
+      "backend": "FAISS + SentenceTransformer embeddings"
+    }
+  },
+  "verified": true
+}

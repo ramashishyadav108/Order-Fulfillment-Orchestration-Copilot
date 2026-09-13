@@ -1,0 +1,10 @@
+{
+  "ac_id": "AC-07",
+  "criterion": "Memory persists across sessions",
+  "test_script": "scripts/run_memory_test.py",
+  "session_1_action": "Store fact with key 'customer_preference_alpha'",
+  "restart_simulation": "MemoryManager destroyed and recreated with new session ID",
+  "session_2_action": "Recall fact with key 'customer_preference_alpha'",
+  "recall_success": false,
+  "verified": false
+}

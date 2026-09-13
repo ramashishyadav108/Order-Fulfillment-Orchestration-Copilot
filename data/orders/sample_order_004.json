@@ -1,0 +1,35 @@
+{
+  "order_id": "ORD-2024-004",
+  "customer_id": "CUST-1004",
+  "customer_name": "Synthetic Delta Chemicals",
+  "order_date": "2024-11-17T09:15:00Z",
+  "priority": "express",
+  "shipping_address": {
+    "street": "456 Safety Lane",
+    "city": "Houston",
+    "state": "TX",
+    "zip": "77001",
+    "country": "US"
+  },
+  "items": [
+    {
+      "sku": "SKU-BATTERY-HAZ-001",
+      "name": "Industrial Lithium Battery Pack",
+      "quantity": 10,
+      "unit_price": 299.99,
+      "weight_kg": 5.0
+    },
+    {
+      "sku": "SKU-CHARGER-005",
+      "name": "Universal Battery Charger",
+      "quantity": 10,
+      "unit_price": 89.99,
+      "weight_kg": 1.2
+    }
+  ],
+  "total_value": 3899.80,
+  "required_delivery_date": "2024-11-19T23:59:59Z",
+  "special_instructions": "HAZMAT shipment — requires certified hazmat carrier and special packaging per DOT regulations.",
+  "is_hazmat": true,
+  "insurance_required": true
+}

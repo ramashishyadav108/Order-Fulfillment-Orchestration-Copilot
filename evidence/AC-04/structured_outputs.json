@@ -1,0 +1,163 @@
+{
+  "ac_id": "AC-04",
+  "criterion": "Node/agent outputs are validated structured objects (Pydantic)",
+  "total_structured_outputs": 4,
+  "outputs": {
+    "validation_result": {
+      "pydantic_class": "OrderValidationResult",
+      "fields": [
+        "order_id",
+        "is_valid",
+        "errors",
+        "warnings",
+        "validated_at",
+        "agent_notes"
+      ],
+      "data": {
+        "order_id": "ORD-2024-001",
+        "is_valid": true,
+        "errors": [],
+        "warnings": [],
+        "validated_at": "2024-11-15 12:00:00+00:00",
+        "agent_notes": "All business rules passed successfully. Customer ID is present, shipping address is complete, item quantities and prices are valid, delivery date is feasible, no hazmat flags violated, and total value matches the calculated sum."
+      }
+    },
+    "allocation_result": {
+      "pydantic_class": "AllocationResult",
+      "fields": [
+        "order_id",
+        "status",
+        "allocations",
+        "is_split",
+        "warehouses_used",
+        "unallocated_skus",
+        "allocated_at",
+        "agent_notes"
+      ],
+      "data": {
+        "order_id": "ORD-2024-001",
+        "status": "fully_allocated",
+        "allocations": [
+          {
+            "warehouse_id": "WH-CENTRAL-01",
+            "warehouse_name": "Central Hub Warehouse",
+            "sku": "SKU-LAPTOP-001",
+            "quantity_allocated": 2,
+            "quantity_requested": 2,
+            "is_partial": false
+          },
+          {
+            "warehouse_id": "WH-CENTRAL-01",
+            "warehouse_name": "Central Hub Warehouse",
+            "sku": "SKU-MOUSE-003",
+            "quantity_allocated": 5,
+            "quantity_requested": 5,
+            "is_partial": false
+          }
+        ],
+        "is_split": false,
+        "warehouses_used": [
+          "WH-CENTRAL-01"
+        ],
+        "unallocated_skus": [],
+        "allocated_at": "2024-11-15 12:05:00+00:00",
+        "agent_notes": "Order fully allocated from the geographically closest warehouse (Central Hub Warehouse in Memphis, TN to Chicago, IL) with sufficient effective allocatable stock."
+      }
+    },
+    "carrier_result": {
+      "pydantic_class": "CarrierSelectionResult",
+      "fields": [
+        "order_id",
+        "selected_carrier_id",
+        "selected_carrier_name",
+        "service_level",
+        "shipping_cost",
+        "insurance_cost",
+        "total_cost",
+        "estimated_delivery_days",
+        "selection_reason",
+        "alternatives_considered",
+        "is_hazmat_compliant",
+        "selected_at",
+        "agent_notes"
+      ],
+      "data": {
+        "order_id": "ORD-2024-001",
+        "selected_carrier_id": "CARRIER-ECO-03",
+        "selected_carrier_name": "EcoTransit Green",
+        "service_level": "standard",
+        "shipping_cost": 7.97,
+        "insurance_cost": 28.5,
+        "total_cost": 36.47,
+        "estimated_delivery_days": 6,
+        "selection_reason": "EcoTransit Green provides the lowest total cost ($36.47) and meets all standard service requirements, weight limits, and non-hazmat criteria while offering a high reliability score of 0.95 and an estimated delivery of 6 days, which meets the required delivery window.",
+        "alternatives_considered": [
+          {
+            "carrier_id": "CARRIER-SWIFT-01",
+            "carrier_name": "SwiftShip Logistics",
+            "total_cost": 54.21,
+            "estimated_days": 5,
+            "reliability_score": 0.92
+          },
+          {
+            "carrier_id": "CARRIER-HEAVY-02",
+            "carrier_name": "HeavyHaul Freight",
+            "total_cost": 83.73,
+            "estimated_days": 7,
+            "reliability_score": 0.88
+          }
+        ],
+        "is_hazmat_compliant": true,
+        "selected_at": "2024-11-15 12:10:00+00:00",
+        "agent_notes": "Selected EcoTransit Green based on Rule CR-005 for lowest total cost among eligible standard service level carriers."
+      }
+    },
+    "dispatch_result": {
+      "pydantic_class": "DispatchResult",
+      "fields": [
+        "order_id",
+        "dispatch_id",
+        "is_dispatched",
+        "shipments",
+        "total_shipping_cost",
+        "total_insurance_cost",
+        "dispatched_at",
+        "notes",
+        "agent_notes"
+      ],
+      "data": {
+        "order_id": "ORD-2024-001",
+        "dispatch_id": "DSP-2024-8f4b21",
+        "is_dispatched": true,
+        "shipments": [
+          {
+            "shipment_id": "SHP-2024-001",
+            "tracking_number": "TRK-9876543210987654",
+            "carrier_id": "CARRIER-ECO-03",
+            "carrier_name": "EcoTransit Green",
+            "service_level": "standard",
+            "warehouse_id": "WH-CENTRAL-01",
+            "items_shipped": [
+              {
+                "sku": "SKU-LAPTOP-001",
+                "quantity": 2
+              },
+              {
+                "sku": "SKU-MOUSE-003",
+                "quantity": 5
+              }
+            ],
+            "estimated_delivery": "2024-11-21 12:00:00+00:00",
+            "shipping_cost": 7.97
+          }
+        ],
+        "total_shipping_cost": 7.97,
+        "total_insurance_cost": 28.5,
+        "dispatched_at": "2024-11-15 12:15:00+00:00",
+        "notes": "All pre-dispatch quality checks passed successfully. Shipment handed over to EcoTransit Green.",
+        "agent_notes": "Dispatch completed for ORD-2024-001 with single warehouse allocation from Central Hub Warehouse."
+      }
+    }
+  },
+  "verified": true
+}

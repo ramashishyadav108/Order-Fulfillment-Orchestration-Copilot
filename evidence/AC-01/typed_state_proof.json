@@ -1,0 +1,38 @@
+{
+  "ac_id": "AC-01",
+  "criterion": "Built on LangGraph with explicit typed state object (TypedDict)",
+  "state_class": "FulfillmentState",
+  "state_module": "src.graph.state",
+  "state_base": "TypedDict",
+  "typed_fields": {
+    "order": "typing.Optional[typing.Dict[str, typing.Any]]",
+    "validation_result": "typing.Optional[src.models.order.OrderValidationResult]",
+    "allocation_result": "typing.Optional[src.models.inventory.AllocationResult]",
+    "carrier_result": "typing.Optional[src.models.carrier.CarrierSelectionResult]",
+    "dispatch_result": "typing.Optional[src.models.fulfillment.DispatchResult]",
+    "reflection_result": "typing.Optional[src.models.agent.ReflectionResult]",
+    "supervisor_decision": "typing.Optional[src.models.agent.SupervisorDecision]",
+    "status": "<enum 'FulfillmentStatus'>",
+    "errors": "typing.List[str]",
+    "retry_count": "<class 'int'>",
+    "context": "typing.Dict[str, typing.Any]",
+    "session_id": "<class 'str'>"
+  },
+  "field_count": 12,
+  "final_state_keys": [
+    "order",
+    "validation_result",
+    "allocation_result",
+    "carrier_result",
+    "dispatch_result",
+    "reflection_result",
+    "supervisor_decision",
+    "status",
+    "errors",
+    "retry_count",
+    "context",
+    "session_id"
+  ],
+  "final_status": "FulfillmentStatus.COMPLETED",
+  "verified": true
+}

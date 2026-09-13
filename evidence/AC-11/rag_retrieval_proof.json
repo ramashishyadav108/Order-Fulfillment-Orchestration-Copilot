@@ -1,0 +1,24 @@
+{
+  "ac_id": "AC-11",
+  "criterion": "Agentic-RAG tool for SOP/rules lookup",
+  "rag_tools": [
+    {
+      "name": "lookup_fulfillment_sop",
+      "description": "Look up rules in the Fulfillment Standard Operating Procedures (SOP). Use this to answer questions about validation rules, prioritization, or general fulfillment process requirements. Input is a search query string."
+    },
+    {
+      "name": "lookup_carrier_rules",
+      "description": "Look up specific carrier selection rules. Use this to understand constraints around hazmat, weight limits, service levels, and cost optimization. Input is a search query string."
+    },
+    {
+      "name": "lookup_warehouse_rules",
+      "description": "Look up warehouse allocation rules. Use this to understand geographic routing, stock checks, and split fulfillment protocols. Input is a search query string."
+    }
+  ],
+  "tool_count": 3,
+  "test_query": "hazmat carrier selection rules for express shipment",
+  "retrieved_context": "--- Relevant Extracts from Carrier Rules ---\n\n[Carrier Rules - Rule CR-001: Hazmat Carrier Requirement] (relevance: 0.82)\n## Rule CR-001: Hazmat Carrier Requirement\n- **Condition**: Order has is_hazmat = true OR any item SKU contains \"HAZ\"\n- **Action**: Only carriers with hazmat_certified = true may be selected.\n- **Eligible Carriers**: HeavyHaul Freight (CARRIER-HEAVY-02), PrimeExpress Courier (CARRIER-PRIME-04)\n- **Violation**: Assigning a non-hazmat-certified carrier to a hazmat shipment is a CRITICAL compliance violation.\n\n[Carrier Rules - Section 1] (relevance: 0.77)\n# Carrier Selection Rules",
+  "context_length": 604,
+  "backend": "FAISS IndexFlatIP + BAAI/bge-small-en-v1.5 embeddings",
+  "verified": true
+}

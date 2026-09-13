@@ -1,0 +1,38 @@
+{
+  "ac_id": "AC-03",
+  "criterion": "Graph uses conditional edges to route on state",
+  "routers": [
+    "supervisor_router (supervisor -> worker nodes based on status)",
+    "validation_router (validation -> supervisor)",
+    "inventory_router (inventory -> supervisor)",
+    "carrier_router (carrier -> supervisor)",
+    "dispatch_router (dispatch -> reflection)",
+    "reflection_router (reflection -> COMPLETE or self-healing re-route)"
+  ],
+  "supervisor_routing_table": {
+    "pending": "validate",
+    "validating": "allocate_inventory",
+    "validation_failed": "hold",
+    "allocating_inventory": "select_carrier",
+    "split_fulfillment": "select_carrier",
+    "allocation_failed": "fail",
+    "selecting_carrier": "dispatch",
+    "carrier_selection_failed": "fail",
+    "dispatching": "reflect",
+    "dispatched": "reflect",
+    "reflecting": "complete",
+    "completed": "complete",
+    "on_hold": "hold",
+    "failed": "fail",
+    "backordered": "fail"
+  },
+  "status_transitions_in_run": [
+    "PENDING -> supervisor -> VALIDATE -> validation",
+    "VALIDATING -> supervisor -> ALLOCATE_INVENTORY -> inventory",
+    "ALLOCATING_INVENTORY -> supervisor -> SELECT_CARRIER -> carrier",
+    "SELECTING_CARRIER -> supervisor -> DISPATCH -> dispatch",
+    "DISPATCHED -> reflection -> COMPLETED"
+  ],
+  "final_status": "FulfillmentStatus.COMPLETED",
+  "verified": true
+}

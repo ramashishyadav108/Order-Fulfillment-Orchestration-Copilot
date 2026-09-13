@@ -1,0 +1,35 @@
+{
+  "order_id": "ORD-2024-003",
+  "customer_id": "CUST-1003",
+  "customer_name": "Synthetic Gamma Industries",
+  "order_date": "2024-11-16T14:00:00Z",
+  "priority": "standard",
+  "shipping_address": {
+    "street": "789 Commerce Way",
+    "city": "Dallas",
+    "state": "TX",
+    "zip": "75201",
+    "country": "US"
+  },
+  "items": [
+    {
+      "sku": "SKU-SERVER-001",
+      "name": "Rack Server Unit RS-4000",
+      "quantity": 50,
+      "unit_price": 4999.99,
+      "weight_kg": 25.0
+    },
+    {
+      "sku": "SKU-CABLE-010",
+      "name": "Cat6 Ethernet Cable 50ft",
+      "quantity": 200,
+      "unit_price": 12.99,
+      "weight_kg": 0.5
+    }
+  ],
+  "total_value": 252597.50,
+  "required_delivery_date": "2024-11-25T23:59:59Z",
+  "special_instructions": "Bulk order — coordinate with site manager for forklift access.",
+  "is_hazmat": false,
+  "insurance_required": true
+}

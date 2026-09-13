@@ -1,0 +1,21 @@
+{
+  "ac_id": "AC-10",
+  "criterion": "Agent consumes MCP server via langchain-mcp-adapters",
+  "client_file": "src/mcp/client.py",
+  "tools_loaded": [
+    {
+      "name": "inventory_lookup",
+      "description": ""
+    },
+    {
+      "name": "carrier_rates",
+      "description": ""
+    }
+  ],
+  "tool_count": 2,
+  "inventory_agent_used_tool": true,
+  "inventory_allocation_status": "fully_allocated",
+  "carrier_agent_used_tool": true,
+  "carrier_selected": "EcoTransit Green",
+  "verified": true
+}

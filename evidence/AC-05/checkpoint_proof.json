@@ -1,0 +1,15 @@
+{
+  "ac_id": "AC-05",
+  "criterion": "Checkpointer persists graph state for pause/resume",
+  "db_path": "C:\\Users\\ray09\\Music\\airdawg-document\\capstone2\\runtime\\runtime\\checkpoints\\checkpoints.db",
+  "db_size_bytes": 1196032,
+  "tables": [
+    "checkpoints",
+    "writes"
+  ],
+  "row_counts": {
+    "checkpoints": 100,
+    "writes": 358
+  },
+  "verified": true
+}

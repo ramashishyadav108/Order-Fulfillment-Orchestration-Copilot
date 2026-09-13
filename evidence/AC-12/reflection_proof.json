@@ -1,0 +1,34 @@
+{
+  "ac_id": "AC-12",
+  "criterion": "Reflection or self-healing/fallback loop",
+  "reflection_agent_file": "src/agents/reflection.py",
+  "reflection_router_file": "src/graph/routing.py",
+  "reflection_result": {
+    "order_id": "ORD-2024-001",
+    "issues_found": [],
+    "severity": "none",
+    "recommendation": "complete",
+    "corrective_actions": [],
+    "confidence_score": 0.98,
+    "reasoning": "The fulfillment pipeline for order ORD-2024-001 executed successfully. The order was validated without errors, fully allocated from a single optimal warehouse, assigned to a cost-effective and compliant carrier (EcoTransit Green), and successfully dispatched. No cost anomalies, rule violations, or SLA risks were detected.",
+    "timestamp": "2024-11-15 12:20:00+00:00"
+  },
+  "self_healing_mechanism": {
+    "description": "reflection_router checks needs_reprocessing flag. If True, routes back to the recommended stage (validation/inventory/carrier/dispatch). If False, routes to COMPLETE.",
+    "possible_re_routes": [
+      "validate -> re-runs ValidationAgent",
+      "allocate_inventory -> re-runs InventoryAgent",
+      "select_carrier -> re-runs CarrierAgent",
+      "dispatch -> re-runs DispatchAgent"
+    ],
+    "max_retries": "3 (enforced by SupervisorAgent)"
+  },
+  "this_run_outcome": {
+    "severity": "none",
+    "recommendation": "complete",
+    "confidence_score": 0.98,
+    "needs_reprocessing": false,
+    "issues_found": []
+  },
+  "verified": true
+}

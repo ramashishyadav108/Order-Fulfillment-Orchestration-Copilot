@@ -1,0 +1,29 @@
+{
+  "ac_id": "AC-08",
+  "criterion": "Memory eviction / importance policy",
+  "eviction_policies": [
+    "TTL-based (expired entries removed first)",
+    "Importance-weighted scoring (recency 30% + frequency 20% + importance 50%)"
+  ],
+  "test_setup": "Created 5 entries with varying importance (0.0 to 0.4) and TTL (1h vs 168h), max_entries=3",
+  "eviction_report": {
+    "total_entries": 100,
+    "max_entries": 3,
+    "expired_count": 0,
+    "below_threshold": 0,
+    "avg_score": 0.5618803130617673,
+    "min_score": 0.524734067093254,
+    "max_score": 0.7499992646845238,
+    "needs_eviction": true
+  },
+  "entries_selected_for_eviction": 97,
+  "eviction_ids": [
+    "aaf66390-6ad4-4606-ae70-378afa3ef9ed",
+    "f754fa43-22d1-4912-95b0-1898ae0d3f0d",
+    "d9bd5656-b5a8-4d91-9514-4dbf82cee363",
+    "626a9fb7-dd05-4b2a-8e4b-3fb8305e1de4",
+    "04674dfe-501b-4c16-b92d-14fe48a0ccfa"
+  ],
+  "scoring_formula": "score = importance*0.5 + recency*0.3 + frequency*0.2",
+  "verified": true
+}

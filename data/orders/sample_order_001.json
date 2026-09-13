@@ -1,0 +1,35 @@
+{
+  "order_id": "ORD-2024-001",
+  "customer_id": "CUST-1001",
+  "customer_name": "Synthetic Corp Alpha",
+  "order_date": "2024-11-15T10:30:00Z",
+  "priority": "standard",
+  "shipping_address": {
+    "street": "123 Industrial Blvd",
+    "city": "Chicago",
+    "state": "IL",
+    "zip": "60601",
+    "country": "US"
+  },
+  "items": [
+    {
+      "sku": "SKU-LAPTOP-001",
+      "name": "Business Laptop Pro 15",
+      "quantity": 2,
+      "unit_price": 1299.99,
+      "weight_kg": 2.1
+    },
+    {
+      "sku": "SKU-MOUSE-003",
+      "name": "Wireless Ergonomic Mouse",
+      "quantity": 5,
+      "unit_price": 49.99,
+      "weight_kg": 0.15
+    }
+  ],
+  "total_value": 2849.93,
+  "required_delivery_date": "2024-11-20T23:59:59Z",
+  "special_instructions": "Please leave at the loading dock. Contact warehouse manager on arrival.",
+  "is_hazmat": false,
+  "insurance_required": true
+}

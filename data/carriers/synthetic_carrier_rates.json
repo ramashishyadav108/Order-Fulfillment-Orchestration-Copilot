@@ -1,0 +1,60 @@
+{
+  "carriers": [
+    {
+      "carrier_id": "CARRIER-SWIFT-01",
+      "name": "SwiftShip Logistics",
+      "service_levels": ["standard", "express", "overnight"],
+      "hazmat_certified": false,
+      "max_weight_kg": 500,
+      "coverage_states": ["ALL"],
+      "rates": {
+        "standard": {"base_rate": 8.99, "per_kg": 0.50, "estimated_days": 5},
+        "express": {"base_rate": 15.99, "per_kg": 0.85, "estimated_days": 2},
+        "overnight": {"base_rate": 29.99, "per_kg": 1.50, "estimated_days": 1}
+      },
+      "insurance_rate_percent": 1.5,
+      "reliability_score": 0.92
+    },
+    {
+      "carrier_id": "CARRIER-HEAVY-02",
+      "name": "HeavyHaul Freight",
+      "service_levels": ["standard", "express"],
+      "hazmat_certified": true,
+      "max_weight_kg": 5000,
+      "coverage_states": ["ALL"],
+      "rates": {
+        "standard": {"base_rate": 25.00, "per_kg": 0.35, "estimated_days": 7},
+        "express": {"base_rate": 45.00, "per_kg": 0.60, "estimated_days": 3}
+      },
+      "insurance_rate_percent": 2.0,
+      "reliability_score": 0.88
+    },
+    {
+      "carrier_id": "CARRIER-ECO-03",
+      "name": "EcoTransit Green",
+      "service_levels": ["standard"],
+      "hazmat_certified": false,
+      "max_weight_kg": 200,
+      "coverage_states": ["IL", "IN", "OH", "MI", "WI", "MN", "IA", "MO"],
+      "rates": {
+        "standard": {"base_rate": 5.99, "per_kg": 0.40, "estimated_days": 6}
+      },
+      "insurance_rate_percent": 1.0,
+      "reliability_score": 0.95
+    },
+    {
+      "carrier_id": "CARRIER-PRIME-04",
+      "name": "PrimeExpress Courier",
+      "service_levels": ["express", "overnight"],
+      "hazmat_certified": true,
+      "max_weight_kg": 100,
+      "coverage_states": ["ALL"],
+      "rates": {
+        "express": {"base_rate": 19.99, "per_kg": 1.00, "estimated_days": 2},
+        "overnight": {"base_rate": 39.99, "per_kg": 2.00, "estimated_days": 1}
+      },
+      "insurance_rate_percent": 1.8,
+      "reliability_score": 0.97
+    }
+  ]
+}

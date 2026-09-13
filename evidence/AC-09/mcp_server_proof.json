@@ -1,0 +1,144 @@
+{
+  "ac_id": "AC-09",
+  "criterion": "Custom MCP server exposes >=2 tools and 1 resource",
+  "server_file": "src/mcp/server.py",
+  "tools_exposed": [
+    {
+      "name": "inventory_lookup",
+      "description": "Look up inventory levels for SKUs across warehouses",
+      "sample_output_keys": [
+        "skus_requested",
+        "warehouse_filter",
+        "stock",
+        "total_effective_by_sku"
+      ]
+    },
+    {
+      "name": "carrier_rates",
+      "description": "Get carrier rates and eligibility for shipment parameters",
+      "sample_output_keys": [
+        "request",
+        "eligible_carriers",
+        "ineligible_carriers"
+      ]
+    }
+  ],
+  "tool_count": 2,
+  "minimum_required": 2,
+  "sample_inventory_lookup": {
+    "skus_requested": [
+      "SKU-LAPTOP-001"
+    ],
+    "warehouse_filter": null,
+    "stock": [
+      {
+        "warehouse_id": "WH-EAST-01",
+        "warehouse_name": "East Coast Distribution Center",
+        "warehouse_location": {
+          "city": "Newark",
+          "state": "NJ",
+          "zip": "07102"
+        },
+        "sku": "SKU-LAPTOP-001",
+        "quantity_available": 15,
+        "reserved": 3,
+        "net_available": 12,
+        "effective_allocatable": 7,
+        "reorder_point": 5,
+        "below_reorder": false
+      },
+      {
+        "warehouse_id": "WH-CENTRAL-01",
+        "warehouse_name": "Central Hub Warehouse",
+        "warehouse_location": {
+          "city": "Memphis",
+          "state": "TN",
+          "zip": "38103"
+        },
+        "sku": "SKU-LAPTOP-001",
+        "quantity_available": 25,
+        "reserved": 5,
+        "net_available": 20,
+        "effective_allocatable": 12,
+        "reorder_point": 8,
+        "below_reorder": false
+      },
+      {
+        "warehouse_id": "WH-WEST-01",
+        "warehouse_name": "West Coast Fulfillment Center",
+        "warehouse_location": {
+          "city": "Ontario",
+          "state": "CA",
+          "zip": "91761"
+        },
+        "sku": "SKU-LAPTOP-001",
+        "quantity_available": 10,
+        "reserved": 2,
+        "net_available": 8,
+        "effective_allocatable": 3,
+        "reorder_point": 5,
+        "below_reorder": false
+      }
+    ],
+    "total_effective_by_sku": {
+      "SKU-LAPTOP-001": 22
+    }
+  },
+  "sample_carrier_rates": {
+    "request": {
+      "weight_kg": 5.0,
+      "destination": "IL",
+      "service_level": "standard",
+      "is_hazmat": false,
+      "order_value": 1000.0
+    },
+    "eligible_carriers": [
+      {
+        "carrier_id": "CARRIER-ECO-03",
+        "carrier_name": "EcoTransit Green",
+        "service_level": "standard",
+        "shipping_cost": 7.99,
+        "insurance_cost": 10.0,
+        "total_cost": 17.99,
+        "estimated_days": 6,
+        "reliability_score": 0.95,
+        "hazmat_certified": false,
+        "max_weight_kg": 200
+      },
+      {
+        "carrier_id": "CARRIER-SWIFT-01",
+        "carrier_name": "SwiftShip Logistics",
+        "service_level": "standard",
+        "shipping_cost": 11.49,
+        "insurance_cost": 15.0,
+        "total_cost": 26.49,
+        "estimated_days": 5,
+        "reliability_score": 0.92,
+        "hazmat_certified": false,
+        "max_weight_kg": 500
+      },
+      {
+        "carrier_id": "CARRIER-HEAVY-02",
+        "carrier_name": "HeavyHaul Freight",
+        "service_level": "standard",
+        "shipping_cost": 26.75,
+        "insurance_cost": 20.0,
+        "total_cost": 46.75,
+        "estimated_days": 7,
+        "reliability_score": 0.88,
+        "hazmat_certified": true,
+        "max_weight_kg": 5000
+      }
+    ],
+    "ineligible_carriers": [
+      {
+        "carrier_id": "CARRIER-PRIME-04",
+        "carrier_name": "PrimeExpress Courier",
+        "reasons": [
+          "Does not offer standard service"
+        ]
+      }
+    ]
+  },
+  "verified": true
+}

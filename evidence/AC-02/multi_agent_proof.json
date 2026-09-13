@@ -1,0 +1,39 @@
+{
+  "ac_id": "AC-02",
+  "criterion": "Supervisor routes order to >=3 specialized worker agents",
+  "total_workers_invoked": 5,
+  "minimum_required": 3,
+  "agents": [
+    {
+      "agent": "ValidationAgent",
+      "state_key": "validation_result",
+      "was_invoked": true,
+      "output_type": "OrderValidationResult"
+    },
+    {
+      "agent": "InventoryAgent",
+      "state_key": "allocation_result",
+      "was_invoked": true,
+      "output_type": "AllocationResult"
+    },
+    {
+      "agent": "CarrierAgent",
+      "state_key": "carrier_result",
+      "was_invoked": true,
+      "output_type": "CarrierSelectionResult"
+    },
+    {
+      "agent": "DispatchAgent",
+      "state_key": "dispatch_result",
+      "was_invoked": true,
+      "output_type": "DispatchResult"
+    },
+    {
+      "agent": "ReflectionAgent",
+      "state_key": "reflection_result",
+      "was_invoked": true,
+      "output_type": "ReflectionResult"
+    }
+  ],
+  "verified": true
+}

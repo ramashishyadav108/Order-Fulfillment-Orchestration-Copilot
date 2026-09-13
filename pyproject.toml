@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "order-fulfillment-copilot"
+version = "1.0.0"
+description = "Order Fulfillment Orchestration Copilot — Multi-Agent Fulfillment System"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "Capstone Team", email = "team@example.com"}
+]
+
+[project.scripts]
+fulfillment-copilot = "src.application.runner:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+markers = [
+    "unit: Unit tests",
+    "integration: Integration tests",
+    "memory: Memory persistence tests",
+]
