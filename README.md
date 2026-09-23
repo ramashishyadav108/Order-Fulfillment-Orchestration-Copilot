@@ -4,7 +4,7 @@
 ![Framework](https://img.shields.io/badge/framework-LangGraph-orange)
 ![LLM](https://img.shields.io/badge/LLM-Gemini_Pro-green)
 
-A sophisticated, multi-agent AI copilot designed to fully automate and orchestrate the supply chain order fulfillment process. Built as the capstone submission for the Agentic AI course (AAIE_AGT_019_LOG), this project demonstrates advanced agentic patterns including dynamic routing, context engineering, tiered memory, and Model Context Protocol (MCP) integrations.
+A sophisticated, multi-agent AI copilot designed to fully automate and orchestrate the supply chain order fulfillment process.This project demonstrates advanced agentic patterns including dynamic routing, context engineering, tiered memory, and Model Context Protocol (MCP) integrations.
 
 ---
 
